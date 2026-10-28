@@ -6,18 +6,23 @@
 
 <style scoped>
 .horses-line {
-  --tile: 1662px;
+  --frame-width: 238px;
+  --frame-count: 7; 
+  --cycle-count: 30;
 
-  width: calc(100% + var(--tile) * 4);
   height: 105px;
-  background: url("../assets/img/horses.webp") repeat-x 0 0 / var(--tile) 100%;
-  animation: run linear both;
+  background: url("../assets/img/horses.webp") repeat-x 0 0 /
+    calc(var(--frame-width) * var(--frame-count)) 100%;
+
+  animation: run steps(210) both;
   animation-timeline: scroll(root block);
 }
 
 @keyframes run {
   to {
-    transform: translateX(calc(var(--tile) * 3));
+    background-position-x: calc(
+      var(--frame-width) * var(--frame-count) * var(--cycle-count) * -1
+    );
   }
 }
 </style>

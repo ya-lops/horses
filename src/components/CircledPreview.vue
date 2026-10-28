@@ -34,3 +34,29 @@ defineEmits(["open"]);
     </button>
   </div>
 </template>
+
+<style scoped>
+.is-visible {
+  .preview-frame {
+    transition:
+      transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+      opacity 1s;
+
+    @starting-style {
+      opacity: 0;
+      transform: rotate(-200deg) scale(0.8);
+    }
+  }
+
+  .preview-img {
+    transition:
+      transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s,
+      opacity 1.2s 0.2s;
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(1.5);
+    }
+  }
+}
+</style>
