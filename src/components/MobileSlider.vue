@@ -2,8 +2,8 @@
 import { ref, computed } from "vue";
 import CircledPreview from "./CircledPreview.vue";
 
-const TAP_MAX_SHIFT = 6 // px: сдвиг меньше этого значения считается тапом, а не свайпом
-const SWIPE_MIN_SHIFT = 50 // px: минимальный сдвиг для переключения слайда
+const TAP_MAX_SHIFT = 6; // px: сдвиг меньше этого значения считается тапом, а не свайпом
+const SWIPE_MIN_SHIFT = 50; // px: минимальный сдвиг для переключения слайда
 
 const props = defineProps({ periods: Array });
 const emit = defineEmits(["open"]);
@@ -38,7 +38,7 @@ function onDragMove(event) {
 function onDragEnd() {
   if (!isDragging.value) return;
   isDragging.value = false;
-  
+
   if (Math.abs(dragShift.value) > SWIPE_MIN_SHIFT)
     goTo(activeIdx.value + (dragShift.value < 0 ? 1 : -1));
   dragShift.value = 0;
@@ -86,37 +86,39 @@ const openLightbox = (period) => {
 
       <button
         type="button"
-        class="absolute left-0 top-[145px] grid size-[33px] -translate-y-1/2 place-items-center rounded-full bg-rust text-cream disabled:opacity-30"
         :disabled="activeIdx === 0"
+        class="absolute left-0 top-[237px] text-[#9e4123] disabled:opacity-30"
         @click="goTo(activeIdx - 1)"
       >
         <svg
-          width="10"
-          height="16"
-          viewBox="0 0 10 16"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="31"
+          height="33"
+          viewBox="0 0 31 33"
         >
-          <path d="M8 1 2 8l6 7" />
+          <path
+            fill="currentColor"
+            d="M27.91 31.29 29.64 29.85 21.72 16.24 29.21 3.35 27.41 1.98 15.24 16.74ZM17.04 31.43 18.91 29.92 8.47 16.31 18.48 3.28 16.61 1.84 1.27 16.74Z"
+          />
         </svg>
       </button>
-
+      
       <button
         type="button"
-        class="absolute right-0 top-[145px] grid size-[33px] -translate-y-1/2 place-items-center rounded-full bg-rust text-cream disabled:opacity-30"
         :disabled="activeIdx === lastIdx"
+        class="absolute right-0 top-[237px] text-[#9e4123] disabled:opacity-30"
         @click="goTo(activeIdx + 1)"
       >
         <svg
-          width="10"
-          height="16"
-          viewBox="0 0 10 16"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="33"
+          viewBox="0 0 32 33"
         >
-          <path d="m2 1 6 7-6 7" />
+          <path
+            fill="currentColor"
+            d="M3.69 1.15 1.99 2.61 9.81 16.41 2.41 29.47 4.19 30.86 16.21 15.9ZM14.44 1.01 12.59 2.54 22.9 16.33 13.01 29.54 14.86 31 30.01 15.9Z"
+          />
         </svg>
       </button>
     </div>

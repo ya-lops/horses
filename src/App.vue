@@ -17,7 +17,7 @@ const openLightbox = (period) => lightboxRef.value.open(period);
     <div class="pt-[74px] max-md:pt-6"><HorsesTrack /></div>
 
     <h1
-      class="mx-auto mt-24 max-w-[1250px] px-6 text-[clamp(30px,6.2vw,80px)] font-extrabold uppercase leading-[1.1] text-white max-md:mt-10 max-md:text-[26px]"
+      class="mx-auto mt-24 max-w-[1250px] px-6 text-[clamp(30px,6.2vw,80px)] font-extrabold uppercase leading-[1.1] text-white max-md:mt-10 max-md:text-[26px] max-md:text-center"
     >
       История Московского<br />ипподрома
     </h1>
@@ -31,7 +31,7 @@ const openLightbox = (period) => lightboxRef.value.open(period);
 
     <div
       v-else
-      class="mx-auto mt-[100px] flex max-w-[900px] flex-col gap-[140px] px-6"
+      class="mx-auto mt-[100px] flex max-w-[900px] flex-col gap-[60px] px-6"
     >
       <TimelineCard
         v-for="period in periods"
